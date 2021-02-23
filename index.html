@@ -10,7 +10,8 @@
 </head>
 
 <body>
-<!-- Navbar -->
+
+
   <nav class="navbar">
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo">The Cocktail Catalog</a>
@@ -20,10 +21,10 @@
       </ul>
     </div>
   </nav>
-<div id="title">
-  <h1 id="titleHeader">Title Place Holder</h1>
-</div>
 
+  <div id="title">
+    <h1 id="titleHeader">Title Place Holder</h1>
+  </div>
 
 
 
@@ -36,13 +37,15 @@
   </div>
 
 
-<div id="searchBar">
-  <input type="text" placeholder="Search.." class="searchBar1">
-</div>
+  <div id="searchBar">
+    <input type="text" placeholder="Search.." class="searchBar1">
+  </div>
+
+
 
   <div class="container cocktail-preview">
     <div class="row">
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l3 previewCard">
         <div class="card">
           <div class="card-image">
             <img src="./example_card_image.jpg" alt="example cocktail">
@@ -52,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l3 previewCard">
         <div class="card">
           <div class="card-image">
             <img src="./example_card_image.jpg" alt="example cocktail">
@@ -62,7 +65,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l3 previewCard">
         <div class="card">
           <div class="card-image">
             <img src="./example_card_image.jpg" alt="example cocktail">
@@ -72,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l3">
+      <div class="col s12 m6 l3 previewCard">
         <div class="card">
           <div class="card-image">
             <img src="./example_card_image.jpg" alt="example cocktail">
@@ -85,30 +88,35 @@
     </div>
   </div>
 
-  <div class="container" id="details">
-    <div class="row">
+  <div class="container-fluid" id="details">
+    <div class="row padding">
 
-      <div class="col s6 detailBox">
-        <div class="row" id="drinkDisplay">
-          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
-            id="drinkImg">
-          <h1>Drink Name</h1>
-        </div>
-        <div class="row collection" id="ingredients">
-          <a href="#!" class="collection-item">Ingredients</a>
-          <a href="#!" class="collection-item active">Ingredients</a>
-          <a href="#!" class="collection-item">Ingredients</a>
-          <a href="#!" class="collection-item">Ingredients</a>
+      <div class="col s12 m12 l12 xl6">
+        <div class="detailBox">
+          <div class="row" id="drinkDisplay">
+            <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
+              id="drinkImg">
+            <h1>Drink Name</h1>
+          </div>
+          <div class="row collection" id="ingredients">
+            <a href="#!" class="collection-item">Ingredients</a>
+            <a href="#!" class="collection-item active">Ingredients</a>
+            <a href="#!" class="collection-item">Ingredients</a>
+            <a href="#!" class="collection-item">Ingredients</a>
+          </div>
         </div>
       </div>
 
-      <div class="col s6 detailBox" id="nutrition">
+      <div class="col s12 m12 l12 xl6" id="nutrition">
+        <div class="detailBox">
 
+        </div>
 
       </div>
 
     </div>
   </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
