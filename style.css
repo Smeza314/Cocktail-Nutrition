@@ -73,16 +73,16 @@
 /* End of Image Preview Styling */
 
 #title {
-  border: 2px solid #3c4043;
-  background-color: #3c4043;
+  border: 1px solid #3c4043;
+  background-color: white;
   margin: auto;
   width: 60%;
   padding: 10px;
 }
 
 #titleHeader {
-  background: #3c4043;
-  color: white;
+  background: white;
+  color: black;
   padding: 10px;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -90,8 +90,8 @@
 }
 
 #info {
-  border: 2px solid #3c4043;
-  background-color: #3c4043;
+  border: 1px solid #3c4043;
+  background-color: white;
   margin: auto;
   width: 50%;
   padding: 10px;
@@ -99,16 +99,17 @@
 }
 
 .paragraph1 {
-  background: #3c4043;
-  color: white;
+  background: white;
+  color: black;
   padding: 10px;
   text-align: center;
 }
 
 #searchBar {
   overflow: hidden;
-  background-color: #3c4043;
-  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #3c4043;
+  margin-top: 10px;
   width: 30%;
   margin-left: 35%;
 }
@@ -120,6 +121,6 @@
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
-  color: white;
+  color: black;
   text-align: center;
 }
