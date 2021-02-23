@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo">The Cocktail Catalog</a>
@@ -18,9 +20,99 @@
       </ul>
     </div>
   </nav>
+  <div id="title">
+    <h1 id="titleHeader">Title Place Holder</h1>
+  </div>
 
-<script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
-<script src="./java.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+  <div id="info">
+    <p class="paragraph1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium quisquam iure voluptate
+      labore rerum. Neque a perferendis iusto dolores nostrum reprehenderit quidem, odio deleniti id suscipit fugiat
+      eius enim sunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, impedit? Vero beatae sunt alias
+      assumenda consequatur est quisquam dolorem, veritatis, exercitationem harum qui voluptatem minus porro adipisci.
+      Tempore, provident explicabo.</p>
+  </div>
+
+
+  <div id="searchBar">
+    <input type="text" placeholder="Search.." class="searchBar1">
+  </div>
+
+  <div class="container cocktail-preview">
+    <div class="row">
+      <div class="col s12 m6 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./example_card_image.jpg" alt="example cocktail">
+          </div>
+          <div class="card-content">
+            <p class="card-title center-align">Drink #1</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./example_card_image.jpg" alt="example cocktail">
+          </div>
+          <div class="card-content">
+            <p class="card-title center-align">Drink #2</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./example_card_image.jpg" alt="example cocktail">
+          </div>
+          <div class="card-content">
+            <p class="card-title center-align">Drink #3</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="./example_card_image.jpg" alt="example cocktail">
+          </div>
+          <div class="card-content">
+            <p class="card-title center-align">Drink #4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="details">
+    <div class="row">
+
+      <div class="col s6 detailBox">
+        <div class="row" id="drinkDisplay">
+          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
+            id="drinkImg">
+          <h1>Drink Name</h1>
+        </div>
+        <div class="row collection" id="ingredients">
+          <a href="#!" class="collection-item">Ingredients</a>
+          <a href="#!" class="collection-item active">Ingredients</a>
+          <a href="#!" class="collection-item">Ingredients</a>
+          <a href="#!" class="collection-item">Ingredients</a>
+        </div>
+      </div>
+
+      <div class="col s6 detailBox" id="nutrition">
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
+  <script src="./java.js"></script>
 </body>
+
 </html>
