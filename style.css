@@ -1,3 +1,4 @@
+/* Drink Detail Styling */
 
 #drinkDisplay {
   text-align: center;
@@ -14,7 +15,8 @@
 }
 
 .detailBox {
-  height: 600px;
+  margin-bottom: 20px;
+  height: 1000px;
   border: 1px solid gray;
   border-radius: 5%;
   -webkit-border-radius: 5%;
@@ -24,9 +26,51 @@
 }
 
 #ingredients {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
+.padding {
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+/* End of Drink Detail Styling */
+
+/* Image Preview Styling */
+
+.card-content {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image {
+  height: 200px;
+  width: 200px;
+}
+
+.previewCard {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1220px) {
+  .card-image {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .card-image {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+/* End of Image Preview Styling */
 
 #title {
   border: 2px solid #3c4043;
@@ -59,7 +103,6 @@
   color: white;
   padding: 10px;
   text-align: center;
-  
 }
 
 #searchBar {
@@ -80,4 +123,3 @@
   color: white;
   text-align: center;
 }
-
