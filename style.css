@@ -1,3 +1,71 @@
+/* nav bar styling  */
+
+nav {
+  background-color: #009f96;
+}
+
+nav .brand-logo {
+  margin-left: 10px;
+  color: #444b54;
+  font-size: 2.5rem;
+}
+
+/* nav bar styling end */
+
+/* title area styling */
+
+#title {
+  /* border: 1px solid #3c4043; */
+  /* background-color: white; */
+  margin: auto;
+  /* width: 60%; */
+  padding: 10px;
+}
+
+button
+
+#titleHeader {
+  background: white;
+  color: #444b54;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+#info {
+  /* border: 1px solid #3c4043;
+  background-color: white; */
+  margin: auto;
+  /* width: 50%; */
+  padding: 10px;
+}
+
+.paragraph1 {
+  background: white;
+  color: #444b54;
+  margin: 0px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#searchBar {
+  overflow: hidden;
+  width: 300px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.searchBar1 {
+  text-align: center;
+  width: 200px !important;
+}
+
+/* title area styling */
+
 /* Drink Detail Styling */
 
 #drinkDisplay {
@@ -36,9 +104,13 @@
   padding-left: 5%;
 }
 
-/* End of Drink Detail Styling */
-
-/* Image Preview Styling */
+.previewCard {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+}
 
 .card .card-content {
   height: 60px;
@@ -59,17 +131,15 @@
   justify-content: center;
 }
 
+/* End of Drink Detail Styling */
+
+/* space to be filled (stock area) */
+
 h3 {
   color: gray;
 }
 
-.previewCard {
-  display: flex;
-  justify-content: center;
-  /* margin-left: auto;
-  margin-right: auto;
-  float: none !important; */
-}
+/* media compatability */
 
 @media only screen and (max-width: 1220px) {
   .card-image {
@@ -88,58 +158,4 @@ h3 {
   }
 }
 
-/* End of Image Preview Styling */
-
-#title {
-  border: 1px solid #3c4043;
-  background-color: white;
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
-
-#titleHeader {
-  background: white;
-  color: black;
-  padding: 10px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  text-align: center;
-}
-
-#info {
-  border: 1px solid #3c4043;
-  background-color: white;
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.paragraph1 {
-  background: white;
-  color: black;
-  padding: 10px;
-  text-align: center;
-}
-
-#searchBar {
-  overflow: hidden;
-  background-color: white;
-  border: 1px solid #3c4043;
-  margin-top: 10px;
-  width: 30%;
-  margin-left: 35%;
-  margin-bottom: 20px;
-}
-
-.searchBar1 {
-  float: left;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  color: black;
-  text-align: center;
-}
+/* media compatability end */
