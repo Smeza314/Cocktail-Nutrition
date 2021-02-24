@@ -40,11 +40,13 @@
 
 /* Image Preview Styling */
 
-.card-content {
+.card .card-content {
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0px;
+  height: 75px;
 }
 
 .card-image {
@@ -52,14 +54,29 @@
   width: 200px;
 }
 
+.cocktailRow {
+  display: flex !important;
+  justify-content: center;
+}
+
+h3 {
+  color: gray;
+}
+
 .previewCard {
   display: flex;
   justify-content: center;
+  /* margin-left: auto;
+  margin-right: auto;
+  float: none !important; */
 }
 
 @media only screen and (max-width: 1220px) {
   .card-image {
     height: 150px;
+    width: 150px;
+  }
+  .card-title {
     width: 150px;
   }
 }
