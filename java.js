@@ -5,24 +5,24 @@ document.getElementById('search').addEventListener('click', event => {
   let drinkSearch = document.getElementById('searchValue').value
   // Axios request
 
-  let drinkList = [
-    {
-      name: 'drink 1',
-      image: 'drink 1 image'
-    },
-    {
-      name: 'drink 2',
-      image: 'drink 2 image'
-    },
-    {
-      name: 'drink 3',
-      image: 'drink 3 image'
-    },
-    {
-      name: 'drink 4',
-      image: 'drink 4 image'
-    }
-  ]
+  // let drinkList = [
+  //   {
+  //     name: 'drink 1',
+  //     image: 'drink 1 image'
+  //   },
+  //   {
+  //     name: 'drink 2',
+  //     image: 'drink 2 image'
+  //   },
+  //   {
+  //     name: 'drink 3',
+  //     image: 'drink 3 image'
+  //   },
+  //   {
+  //     name: 'drink 4',
+  //     image: 'drink 4 image'
+  //   }
+  // ]
 
 
   document.getElementById('cocktail-preview').innerHTML = ''
