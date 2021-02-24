@@ -63,8 +63,10 @@ document.getElementById('search').addEventListener('click', event => {
 //   .catch(err => console.error(err))
 
 const getDrink = (drinkSearch) => {
+  console.log(drinkSearch)
   axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkSearch}`)
   .then(res => {
+    console.log(res.data)
     let drinkList = []
     for (i = 0; i < 4; i++) {
       let drink = res.data.drinks[i]
@@ -111,6 +113,7 @@ const getDrink = (drinkSearch) => {
         </div>
       </div>
       `
+    }
   })
   .catch(err => console.error(err))
 }
