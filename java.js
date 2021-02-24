@@ -1,15 +1,65 @@
 
+document.getElementById('search').addEventListener('click', event => {
+  event.preventDefault()
 
-axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-  .then(res => {
-    console.log(res)
-  })
-  .catch(err => console.error(err))
+  let drinkSearch = document.getElementById('searchValue').value
+  // Axios request
 
-axios.get('https://api.edamam.com/api/nutrition-data?app_id=c543d3f7&app_key=b07975353995fafd647e1d5c37e04dc0&ingr=1%20large%20apple')
-  .then(res => {
-    console.log(res)
-  })
-  .catch(err => console.error(err))
+  let drinkList = [
+    {
+      name: 'drink 1',
+      image: 'drink 1 image'
+    },
+    {
+      name: 'drink 2',
+      image: 'drink 2 image'
+    },
+    {
+      name: 'drink 3',
+      image: 'drink 3 image'
+    },
+    {
+      name: 'drink 4',
+      image: 'drink 4 image'
+    }
+  ]
+
+
+  document.getElementById('cocktail-preview').innerHTML = ''
+
+  for(let i = 0; i < 4; i++){
+    document.getElementById('cocktail-preview').innerHTML += `
+    <div class="col s12 m6 l3 previewCard">
+      <div class="card">
+        <div class="card-image">
+          <img src="./example_card_image.jpg" alt="${drinkList[i].image}">
+        </div>
+        <div class="card-content">
+          <p class="card-title center-align">${drinkList[i].name}</p>
+        </div>
+      </div>
+    </div>
+    `
+  }
+
+
+})
+
+
+
+
+
+
+// axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+//   .then(res => {
+//     console.log(res)
+//   })
+//   .catch(err => console.error(err))
+
+// axios.get('https://api.edamam.com/api/nutrition-data?app_id=c543d3f7&app_key=b07975353995fafd647e1d5c37e04dc0&ingr=1%20large%20apple')
+//   .then(res => {
+//     console.log(res)
+//   })
+//   .catch(err => console.error(err))
 
 
