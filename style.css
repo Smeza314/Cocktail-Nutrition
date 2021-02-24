@@ -18,11 +18,12 @@
   margin-bottom: 20px;
   height: 1000px;
   border: 1px solid gray;
-  border-radius: 5%;
-  -webkit-border-radius: 5%;
-  -moz-border-radius: 5%;
-  -ms-border-radius: 5%;
-  -o-border-radius: 5%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 2px 1px 11px -3px black;
 }
 
 #ingredients {
@@ -112,6 +113,7 @@
   margin-top: 10px;
   width: 30%;
   margin-left: 35%;
+  margin-bottom: 20px;
 }
 
 .searchBar1 {
