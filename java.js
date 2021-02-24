@@ -107,17 +107,51 @@ const getDrink = (drinkSearch) => {
       for (let i = 0; i < length; i++) {
         document.getElementById('cocktail-preview').innerHTML += `
       <div class="col s12 m6 l3 previewCard">
-        <div class="card">
+        <div class="card cardLink">
           <div class="card-image">
-            <img src="${drinkList[i].image}" alt="${drinkList[i].name}">
+            <img src="${drinkList[i].image}" alt="${drinkList[i].name}" class="cImg" data-index=${i}>
           </div>
-          <div class="card-content">
+          <div class="card-content" data-index=${i}>
             <p class="card-title center-align">${drinkList[i].name}</p>
           </div>
         </div>
       </div>
-      `
-      }
+      `}
+      document.addEventListener('click', event => {
+        if (event.target.classList.contains('cImg')|| event.target.classList.contains('card-content')) {
+          console.log('hi')
+          let index = event.target.dataset.index
+          console.log(index)
+          document.getElementById('details').innerHTML = `
+          
+          <div class="row padding">
+          
+          <div class="col s12 m12 l12 xl6">
+          <div class="detailBox">
+          <div class="row" id="drinkDisplay">
+          <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
+          <h1>"${drinkList[index].name}"</h1>
+          </div>
+          <div class="row collection" id="ingredients">
+          <a href="#!" class="collection-item"></a>
+          <a href="#!" class="collection-item active"></a>
+          <a href="#!" class="collection-item"></a>
+          <a href="#!" class="collection-item"></a>
+          </div>
+          </div>
+          </div>
+          
+          <div class="col s12 m12 l12 xl6" id="nutrition">
+          <div class="detailBox">
+          <h5>Instructions</h5>
+          <p>${drinkList[index].instruction}</p>
+          </div>
+          
+          </div>
+          
+          </div>`
+        }
+      })
     })
     .catch(err => console.error(err))
 }
