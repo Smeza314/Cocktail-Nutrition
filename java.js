@@ -121,31 +121,100 @@ const getDrink = (drinkSearch) => {
           console.log('hi')
           let index = event.target.dataset.index
           console.log(index)
-          document.getElementById('details').innerHTML = `  
-            <div class="row padding">
-              <div class="col s12 m12 l12 xl6">
-                <div class="detailBox">
-                  <div class="row" id="drinkDisplay">
-                    <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
-                    <h1>"${drinkList[index].name}"</h1>
-                  </div>
-                  <div class="row collection" id="ingredients">
-                    <a href="#!" class="collection-item"></a>
-                    <a href="#!" class="collection-item active"></a>
-                    <a href="#!" class="collection-item"></a>
-                    <a href="#!" class="collection-item"></a>
-                  </div>
-                </div>
-              </div>
+
+          let drinkIngList = []
+
+          drinkList[index].ingredients.forEach(elem => {
+            if(elem.measure === null){elem.measure = '1 serving of'}
+            let strIngr = `${elem.measure} ${elem.ingredient}`
+            drinkIngList.push(strIngr)
+          });
+
+          let edamamRecipe = {
+            title: drinkList[index].name,
+            ingr: drinkIngList,
+            yield: '1 serving'
+          }    
           
-              <div class="col s12 m12 l12 xl6" id="nutrition">
-                <div class="detailBox">
-                  <h5>Instructions</h5>
-                  <p>${drinkList[index].instruction}</p>
+          // console.log(edamamRecipe)
+          axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', edamamRecipe)
+            .then(res => {
+              console.log(res)
+              console.log(edamamRecipe)
+              let totalNutr = res.data
+              
+              let totalCal = {
+                cal: totalNutr.calories,
+                carbCal: totalNutr.totalNutrientsKCal.CHOCDF_KCAL.quantity,
+                fatCal: totalNutr.totalNutrientsKCal.FAT_KCAL.quantity,
+                protCal: totalNutr.totalNutrientsKCal.PROCNT_KCAL.quantity
+              }
+              console.log(totalCal)
+              
+              let sugars = (totalNutr.totalNutrients.SUGAR.quantity).toFixed(2) + totalNutr.totalNutrients.SUGAR.unit
+              let carbs = (totalNutr.totalNutrients.CHOCDF.quantity).toFixed(2) + totalNutr.totalNutrients.CHOCDF.unit
+              let fat = (totalNutr.totalNutrients.FAT.quantity).toFixed(2) + totalNutr.totalNutrients.FAT.unit
+              let sodium = (totalNutr.totalNutrients.NA.quantity).toFixed(2) + totalNutr.totalNutrients.NA.unit
+              console.log(sugars)
+              console.log(carbs)
+              console.log(fat)
+              console.log(sodium)
+
+
+              document.getElementById('details').innerHTML = `  
+                <div class="row padding">
+                  <div class="col s12 m12 l12 xl6">
+                    <div class="detailBox">
+                      <div class="row" id="drinkDisplay">
+                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
+                        <h1>"${drinkList[index].name}"</h1>
+                      </div>
+                      <div class="row collection" id="ingredients">
+                        <a href="#!" class="collection-item"></a>
+                        <a href="#!" class="collection-item active"></a>
+                        <a href="#!" class="collection-item"></a>
+                        <a href="#!" class="collection-item"></a>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="col s12 m12 l12 xl6" id="nutrition">
+                    <div class="detailBox">
+                      <h5>Instructions</h5>
+                      <p>${drinkList[index].instruction}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          `}
+              `
+            })
+            .catch(err => console.error(err))
+
+          // document.getElementById('details').innerHTML = `  
+          //   <div class="row padding">
+          //     <div class="col s12 m12 l12 xl6">
+          //       <div class="detailBox">
+          //         <div class="row" id="drinkDisplay">
+          //           <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
+          //           <h1>"${drinkList[index].name}"</h1>
+          //         </div>
+          //         <div class="row collection" id="ingredients">
+          //           <a href="#!" class="collection-item"></a>
+          //           <a href="#!" class="collection-item active"></a>
+          //           <a href="#!" class="collection-item"></a>
+          //           <a href="#!" class="collection-item"></a>
+          //         </div>
+          //       </div>
+          //     </div>
+          
+          //     <div class="col s12 m12 l12 xl6" id="nutrition">
+          //       <div class="detailBox">
+          //         <h5>Instructions</h5>
+          //         <p>${drinkList[index].instruction}</p>
+          //       </div>
+          //     </div>
+          //   </div>
+          // `
+        }
       })
     })
     .catch(err => console.error(err))
