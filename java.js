@@ -128,6 +128,8 @@ const getDrink = (drinkSearch) => {
 
           drinkList[index].ingredients.forEach(elem => {
             if(elem.measure === null){elem.measure = '1 serving of'}
+            if(elem.measure === 'Whole'){elem.measure = '1'}
+            if(elem.measure === 'Top'){elem.measure = '1 oz'}
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngList.push(strIngr)
           });
@@ -137,7 +139,7 @@ const getDrink = (drinkSearch) => {
             ingr: drinkIngList,
             yield: '1 serving'
           }    
-          
+          console.log(edamamRecipe)
           // console.log(edamamRecipe)
           axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', edamamRecipe)
             .then(res => {
@@ -170,17 +172,17 @@ const getDrink = (drinkSearch) => {
                       <div class="txtCenter">
                         <h1>${drinkList[index].name}</h1>
                         <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
-                          id="drinkImg">
+                          class="drinkImg" id="drinkImg">
                       </div>
                     </div>
                   </div>
                   <!-- ingredients list and instructions -->
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox">
-                      <div class="ingr">
-                        <h4>Ingredients</h4>
-                        <div class="collection " id="ingredients"></div>
-                      </div>
+                      <h4 class="ingr">Ingredients</h4>
+                      <ul class="ingr ingrList">
+                        <li class="collection " id="ingredients"></li>
+                      </ul>
                       <div class="instr" id="instructions">
                         <h4>Instructions</h4>
                         <p>${drinkList[index].instruction}</p>
@@ -204,14 +206,19 @@ const getDrink = (drinkSearch) => {
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
                           <p>${totalCal.cal}</p>
+                          <hr>
                           <h3 class="values">Sugar</h3>
                           <p>${sugars}</p>
+                          <hr>
                           <h3 class="values">Carbs</h3>
                           <p>${carbs}</p>
+                          <hr>
                           <h3 class="values">Fat</h3>
                           <p>${fat}</p>
+                          <hr>
                           <h3 class="values">Sodium</h3>
                           <p>${sodium}</p>
+                          
                         </div>
                       </div>
                     </div>
@@ -220,7 +227,7 @@ const getDrink = (drinkSearch) => {
               `
               edamamRecipe.ingr.forEach(elem => {
                 document.getElementById('ingredients').innerHTML += `
-                  <a class="collection-item">${elem}</a>
+                  <li class="collection-item">${elem}</li>
                 `
               });
             })
