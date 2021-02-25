@@ -22,7 +22,6 @@ nav .brand-logo {
   padding: 10px;
 }
 
-
 #titleHeader {
   background: white;
   color: #444b54;
@@ -67,7 +66,7 @@ nav .brand-logo {
 
 /* Drink Detail Styling */
 
-#drinkDisplay {
+.txtCenter {
   text-align: center;
 }
 
@@ -81,6 +80,8 @@ nav .brand-logo {
   -o-border-radius: 50%;
 }
 
+/* old html */
+
 .detailBox {
   margin-bottom: 20px;
   height: 1000px;
@@ -93,9 +94,46 @@ nav .brand-logo {
   box-shadow: 2px 1px 11px -3px black;
 }
 
-#ingredients {
-  margin-left: 20px;
-  margin-right: 20px;
+.deetsBox {
+  margin-bottom: 20px;
+  height: 500px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 2px 1px 11px -3px black;
+}
+
+.collection {
+  width: 100%;
+}
+
+.ingr {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.instr {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.values {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: -10px;
+}
+
+.lNutr {
+  width: 50%;
+  text-align: center;
+}
+
+.rNutr {
+  width: 50%;
+  text-align: left;
 }
 
 .padding {
