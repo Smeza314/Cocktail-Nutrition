@@ -1,4 +1,3 @@
-
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
@@ -163,4 +162,15 @@ const getDrink = (drinkSearch) => {
     //   })
     //   .catch(err => console.error(err))
 
+// let test_object = {
+//   title: 'hot pocket',
+//   ingr: ['2 slices of bread', '4 oz of cheddar cheese', '6 slices of ham'],
+//   yield: "1 serving"
+// }
+
+// axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', test_object)
+//   .then(res => {
+//     console.log(res)
+//   })
+//   .catch(err => console.error(err))
 
