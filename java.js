@@ -4,64 +4,7 @@ document.getElementById('search').addEventListener('click', event => {
   document.getElementById('details').innerHTML =``
   getDrink(document.getElementById('searchValue').value)
   document.getElementById('searchValue').value = ''
-  // Axios request
-
-  // let drinkList = [
-  //   {
-  //     name: 'drink 1',
-  //     image: 'drink 1 image'
-  //   },
-  //   {
-  //     name: 'drink 2',
-  //     image: 'drink 2 image'
-  //   },
-  //   {
-  //     name: 'drink 3',
-  //     image: 'drink 3 image'
-  //   },
-  //   {
-  //     name: 'drink 4',
-  //     image: 'drink 4 image'
-  //   }
-  // ]
-
-
-  // document.getElementById('cocktail-preview').innerHTML = ''
-
-  // for(let i = 0; i < 4; i++){
-  //   document.getElementById('cocktail-preview').innerHTML += `
-  //   <div class="col s12 m6 l3 previewCard">
-  //     <div class="card">
-  //       <div class="card-image">
-  //         <img src="./example_card_image.jpg" alt="${drinkList[i].image}">
-  //       </div>
-  //       <div class="card-content">
-  //         <p class="card-title center-align">${drinkList[i].name}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  //   `
-  // }
-
-
 })
-
-
-
-
-
-
-// axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-//   .then(res => {
-//     console.log(res)
-//   })
-//   .catch(err => console.error(err))
-
-// axios.get('https://api.edamam.com/api/nutrition-data?app_id=c543d3f7&app_key=b07975353995fafd647e1d5c37e04dc0&ingr=1%20large%20apple')
-//   .then(res => {
-//     console.log(res)
-//   })
-//   .catch(err => console.error(err))
 
 const getDrink = (drinkSearch) => {
   console.log(drinkSearch)
@@ -137,8 +80,7 @@ const getDrink = (drinkSearch) => {
             ingr: drinkIngList,
             yield: '1 serving'
           }    
-          
-          // console.log(edamamRecipe)
+
           axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', edamamRecipe)
             .then(res => {
               console.log(res)
@@ -225,32 +167,6 @@ const getDrink = (drinkSearch) => {
               });
             })
             .catch(err => console.error(err))
-
-          // document.getElementById('details').innerHTML = `  
-          //   <div class="row padding">
-          //     <div class="col s12 m12 l12 xl6">
-          //       <div class="detailBox">
-          //         <div class="row" id="drinkDisplay">
-          //           <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
-          //           <h1>"${drinkList[index].name}"</h1>
-          //         </div>
-          //         <div class="row collection" id="ingredients">
-          //           <a href="#!" class="collection-item"></a>
-          //           <a href="#!" class="collection-item active"></a>
-          //           <a href="#!" class="collection-item"></a>
-          //           <a href="#!" class="collection-item"></a>
-          //         </div>
-          //       </div>
-          //     </div>
-          
-          //     <div class="col s12 m12 l12 xl6" id="nutrition">
-          //       <div class="detailBox">
-          //         <h5>Instructions</h5>
-          //         <p>${drinkList[index].instruction}</p>
-          //       </div>
-          //     </div>
-          //   </div>
-          // `
         }
       })
     })
