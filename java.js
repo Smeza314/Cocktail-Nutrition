@@ -1,4 +1,3 @@
-
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
@@ -63,6 +62,7 @@ document.getElementById('search').addEventListener('click', event => {
 //   .catch(err => console.error(err))
 
 const getDrink = (drinkSearch) => {
+  console.log(drinkSearch)
   axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkSearch}`)
     .then(res => {
       console.log(res)
@@ -121,35 +121,31 @@ const getDrink = (drinkSearch) => {
           console.log('hi')
           let index = event.target.dataset.index
           console.log(index)
-          document.getElementById('details').innerHTML = `
+          document.getElementById('details').innerHTML = `  
+            <div class="row padding">
+              <div class="col s12 m12 l12 xl6">
+                <div class="detailBox">
+                  <div class="row" id="drinkDisplay">
+                    <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
+                    <h1>"${drinkList[index].name}"</h1>
+                  </div>
+                  <div class="row collection" id="ingredients">
+                    <a href="#!" class="collection-item"></a>
+                    <a href="#!" class="collection-item active"></a>
+                    <a href="#!" class="collection-item"></a>
+                    <a href="#!" class="collection-item"></a>
+                  </div>
+                </div>
+              </div>
           
-          <div class="row padding">
-          
-          <div class="col s12 m12 l12 xl6">
-          <div class="detailBox">
-          <div class="row" id="drinkDisplay">
-          <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
-          <h1>"${drinkList[index].name}"</h1>
-          </div>
-          <div class="row collection" id="ingredients">
-          <a href="#!" class="collection-item"></a>
-          <a href="#!" class="collection-item active"></a>
-          <a href="#!" class="collection-item"></a>
-          <a href="#!" class="collection-item"></a>
-          </div>
-          </div>
-          </div>
-          
-          <div class="col s12 m12 l12 xl6" id="nutrition">
-          <div class="detailBox">
-          <h5>Instructions</h5>
-          <p>${drinkList[index].instruction}</p>
-          </div>
-          
-          </div>
-          
-          </div>`
-        }
+              <div class="col s12 m12 l12 xl6" id="nutrition">
+                <div class="detailBox">
+                  <h5>Instructions</h5>
+                  <p>${drinkList[index].instruction}</p>
+                </div>
+              </div>
+            </div>
+          `}
       })
     })
     .catch(err => console.error(err))
@@ -162,4 +158,15 @@ const getDrink = (drinkSearch) => {
     //   })
     //   .catch(err => console.error(err))
 
+// let test_object = {
+//   title: 'hot pocket',
+//   ingr: ['2 slices of bread', '4 oz of cheddar cheese', '6 slices of ham'],
+//   yield: "1 serving"
+// }
+
+// axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', test_object)
+//   .then(res => {
+//     console.log(res)
+//   })
+//   .catch(err => console.error(err))
 
