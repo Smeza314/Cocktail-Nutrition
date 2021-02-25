@@ -1,7 +1,9 @@
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
+  document.getElementById('details').innerHTML =``
   getDrink(document.getElementById('searchValue').value)
+  document.getElementById('searchValue').value = ''
   // Axios request
 
   // let drinkList = [
@@ -160,32 +162,67 @@ const getDrink = (drinkSearch) => {
               console.log(fat)
               console.log(sodium)
 
-
               document.getElementById('details').innerHTML = `  
                 <div class="row padding">
-                  <div class="col s12 m12 l12 xl6">
-                    <div class="detailBox">
-                      <div class="row" id="drinkDisplay">
-                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
-                        <h1>"${drinkList[index].name}"</h1>
-                      </div>
-                      <div class="row collection" id="ingredients">
-                        <a href="#!" class="collection-item"></a>
-                        <a href="#!" class="collection-item active"></a>
-                        <a href="#!" class="collection-item"></a>
-                        <a href="#!" class="collection-item"></a>
+                  <!-- first column with image and drink name -->
+                  <div class="col s12 m12 l12 xl4">
+                    <div class="deetsBox">
+                      <div class="txtCenter">
+                        <h1>${drinkList[index].name}</h1>
+                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
+                          id="drinkImg">
                       </div>
                     </div>
                   </div>
-          
-                  <div class="col s12 m12 l12 xl6" id="nutrition">
-                    <div class="detailBox">
-                      <h5>Instructions</h5>
-                      <p>${drinkList[index].instruction}</p>
+                  <!-- ingredients list and instructions -->
+                  <div class="col s12 m12 l12 xl4">
+                    <div class="deetsBox">
+                      <div class="ingr">
+                        <h4>Ingredients</h4>
+                        <div class="collection " id="ingredients"></div>
+                      </div>
+                      <div class="instr" id="instructions">
+                        <h4>Instructions</h4>
+                        <p>${drinkList[index].instruction}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- nutritional information -->
+                  <div class="col s12 m12 l12 xl4">
+                    <div class="deetsBox txtCenter">
+                      <div class="">
+                        <h1>Nutrients</h1>
+                      </div>
+
+                      <div class="row">
+                        <div class="col txtCenter lNutr">
+                          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
+                            id="drinkImg">
+                          <h2>calorie percent</h2>
+                        </div>
+                        <div class="col rNutr">
+                          <h3 class="values">Calorie</h3>
+                          <p>${totalCal.cal}</p>
+                          <h3 class="values">Sugar</h3>
+                          <p>${sugars}</p>
+                          <h3 class="values">Carbs</h3>
+                          <p>${carbs}</p>
+                          <h3 class="values">Fat</h3>
+                          <p>${fat}</p>
+                          <h3 class="values">Sodium</h3>
+                          <p>${sodium}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               `
+              edamamRecipe.ingr.forEach(elem => {
+                document.getElementById('ingredients').innerHTML += `
+                  <a class="collection-item">${elem}</a>
+                `
+              });
             })
             .catch(err => console.error(err))
 
