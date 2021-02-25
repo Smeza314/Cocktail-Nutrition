@@ -70,7 +70,7 @@ nav .brand-logo {
   text-align: center;
 }
 
-#drinkImg {
+.drinkImg {
   margin: 2rem;
   margin-bottom: -2rem;
   border-radius: 50%;
@@ -78,6 +78,7 @@ nav .brand-logo {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  width: 50%;
 }
 
 /* old html */
@@ -96,7 +97,7 @@ nav .brand-logo {
 
 .deetsBox {
   margin-bottom: 20px;
-  height: 500px;
+  height: 550px;
   border: 1px solid gray;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -113,6 +114,11 @@ nav .brand-logo {
 .ingr {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.ingrList {
+  overflow-y: scroll;
+  height: 215px;
 }
 
 .instr {
@@ -190,7 +196,21 @@ h3 {
 
 @media only screen and (max-width: 992px) {
   .card-image {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 663px) {
+  .cocktailRow {
+    display: block !important;
+  }
+
+  .card-image {
     height: 250px;
+    width: 250px;
+  }
+  .card-title {
     width: 250px;
   }
 }
