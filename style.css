@@ -62,8 +62,6 @@ nav .brand-logo {
   width: 200px !important;
 }
 
-
-
 /* title area styling */
 
 /* Drink Detail Styling */
@@ -88,6 +86,7 @@ nav .brand-logo {
 }
 
 /* old html */
+
 .detailBox {
   margin-bottom: 20px;
   height: 1000px;
@@ -112,8 +111,6 @@ nav .brand-logo {
   box-shadow: 2px 1px 11px -3px black;
 }
 
-
-
 hr {
   margin-right: 20px;
 }
@@ -121,6 +118,14 @@ hr {
 .collection {
   width: 100%;
 }
+
+.nutri {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+.col-rNutr {}
 
 .ingr {
   margin-left: 10px;
@@ -141,6 +146,15 @@ hr {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: -10px;
+  margin-right: 15px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.pValues {
+  margin-bottom: 0;
+  margin-right: 15px;
+  text-align: right;
 }
 
 .lNutr {
@@ -215,7 +229,6 @@ h3 {
   .cocktailRow {
     display: block !important;
   }
-
   /* .card-image {
     height: 250px;
     width: 250px;
