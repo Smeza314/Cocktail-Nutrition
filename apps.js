@@ -156,8 +156,8 @@ const getDrink = (drinkSearch) => {
                       <ul class="ingrList">
                         <li class="collection " id="ingredients"></li>
                       </ul>
+                      <h4 class="ingr">Instructions</h4>
                       <div class="instr" id="instructions">
-                        <h4>Instructions</h4>
                         <p>${drinkList[index].instruction}</p>
                       </div>
                     </div>
