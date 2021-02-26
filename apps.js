@@ -121,9 +121,13 @@ const getDrink = (drinkSearch) => {
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox">
                       <div class="txtCenter">
-                        <h1>${drinkList[index].name}</h1>
-                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
-                          class="drinkImg" id="drinkImg">
+                      <div class="row">
+                      <h1 class="drinkHead">${drinkList[index].name}</h1>
+                      </div>
+                      <div class="row">
+                      <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
+                        class="drinkImg" id="drinkImg">
+                       </div>
                       </div>
                     </div>
                   </div>
@@ -149,10 +153,6 @@ const getDrink = (drinkSearch) => {
                       </div>
 
                       <div class="row">
-                        <div class="col txtCenter lNutr">
-                          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
-                            id="drinkImg">
-                          <h2>calorie percent</h2>
                         </div>
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
