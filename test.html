@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
+
+
+
+  <script>
+    axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
+    .then(res => {
+      console.log(res)
+
+      for (i = 0; i < res.data.drinks.length; i++) {
+        for (j=1;j<15;j++) {
+          strMeasures = "strMeasure" + j
+          strIngredient = "strIngredient" +j
+          if (res.data.drinks[i][strMeasures]) {
+            console.log(res.data.drinks[i][strIngredient])
+            console.log(res.data.drinks[i][strMeasures])
+          }
+        }
+      }
+    })
+    .catch(err => console.error(err))
+
+
+  </script>
+
+</body>
+</html>

@@ -108,7 +108,7 @@ const getDrink = (drinkSearch) => {
       for (let i = 0; i < length; i++) {
         document.getElementById('cocktail-preview').innerHTML += `
       <div class="col s12 m6 l3 previewCard">
-        <div class="card cardLink">
+        <div class="card">
           <div class="card-image">
             <img src="${drinkList[i].image}" alt="${drinkList[i].name}" class="cImg" data-index=${i}>
           </div>
