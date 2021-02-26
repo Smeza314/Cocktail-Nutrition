@@ -65,7 +65,7 @@ const getDrink = (drinkSearch) => {
       </div>
       `}
       document.addEventListener('click', event => {
-        if (event.target.classList.contains('cImg')|| event.target.classList.contains('card-content')) {
+        if (event.target.classList.contains('cImg') || event.target.classList.contains('card-content')) {
 
           let index = event.target.dataset.index
           let drinkIngList = ''
@@ -77,21 +77,21 @@ const getDrink = (drinkSearch) => {
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngStrList.push(strIngr)
           });
-          let editedDrinkIngList = drinkIngList.slice(0,-1)
+          let editedDrinkIngList = drinkIngList.slice(0, -1)
 
           let nutritionxRecipe = {
             query: editedDrinkIngList
           }
 
           let headers = {
-            'x-app-id': '737c92b6',
-            'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
+            'x-app-id': '1134500c',
+            'x-app-key': 'facd7a17165e187875686dccb6161af8',
             'x-remote-user-id': 0
-            }
+          }
 
           console.log(editedDrinkIngList)
-          axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', nutritionxRecipe, {headers})
-            .then( res => {
+          axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', nutritionxRecipe, { headers })
+            .then(res => {
               console.log(res)
               let totalNutr = res.data.foods
 
@@ -121,9 +121,13 @@ const getDrink = (drinkSearch) => {
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox">
                       <div class="txtCenter">
-                        <h1>${drinkList[index].name}</h1>
-                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
-                          class="drinkImg" id="drinkImg">
+                      <div class="row">
+                      <h1 class="drinkHead">${drinkList[index].name}</h1>
+                      </div>
+                      <div class="row">
+                      <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
+                        class="drinkImg" id="drinkImg">
+                       </div>
                       </div>
                     </div>
                   </div>
@@ -144,31 +148,27 @@ const getDrink = (drinkSearch) => {
                   <!-- nutritional information -->
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox txtCenter">
-                      <div class="">
-                        <h1>Nutrients</h1>
+                      <div class="nutriBox">
+                        <h1 class="nutri">Nutrients </h1>
                       </div>
 
                       <div class="row">
-                        <div class="col txtCenter lNutr">
-                          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
-                            id="drinkImg">
-                          <h2>calorie percent</h2>
                         </div>
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
-                          <p>${cal.toFixed(2)}kcal</p>
+                          <p class="pValues">${cal.toFixed(2)}kcal</p>
                           <hr>
                           <h3 class="values">Sugar</h3>
-                          <p>${sugars.toFixed(2)}g</p>
+                          <p class="pValues">${sugars.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Carbs</h3>
-                          <p>${carbs.toFixed(2)}g</p>
+                          <p class="pValues">${carbs.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Fat</h3>
-                          <p>${fat.toFixed(2)}g</p>
+                          <p class="pValues">${fat.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Sodium</h3>
-                          <p>${sodium.toFixed(2)}mg</p>
+                          <p class="pValues">${sodium.toFixed(2)}mg</p>
                           
                         </div>
                       </div>
@@ -204,7 +204,7 @@ const getDrink = (drinkSearch) => {
           //     console.log(res)
           //     console.log(edamamRecipe)
           //     let totalNutr = res.data
-              
+
           //     let totalCal = {
           //       cal: totalNutr.calories,
           //       carbCal: totalNutr.totalNutrientsKCal.CHOCDF_KCAL.quantity,
@@ -212,7 +212,7 @@ const getDrink = (drinkSearch) => {
           //       protCal: totalNutr.totalNutrientsKCal.PROCNT_KCAL.quantity
           //     }
           //     console.log(totalCal)
-              
+
           //     let sugars = (totalNutr.totalNutrients.SUGAR.quantity).toFixed(2) + totalNutr.totalNutrients.SUGAR.unit
           //     let carbs = (totalNutr.totalNutrients.CHOCDF.quantity).toFixed(2) + totalNutr.totalNutrients.CHOCDF.unit
           //     let fat = (totalNutr.totalNutrients.FAT.quantity).toFixed(2) + totalNutr.totalNutrients.FAT.unit
@@ -276,7 +276,7 @@ const getDrink = (drinkSearch) => {
           //                 <hr>
           //                 <h3 class="values">Sodium</h3>
           //                 <p>${sodium}</p>
-                          
+
           //               </div>
           //             </div>
           //           </div>
