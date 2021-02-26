@@ -153,7 +153,7 @@ const getDrink = (drinkSearch) => {
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox">
                       <h4 class="ingr">Ingredients</h4>
-                      <ul class="ingr ingrList">
+                      <ul class="ingrList">
                         <li class="collection " id="ingredients"></li>
                       </ul>
                       <div class="instr" id="instructions">
