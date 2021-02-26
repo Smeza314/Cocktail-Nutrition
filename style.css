@@ -5,9 +5,12 @@ nav {
 }
 
 nav .brand-logo {
-  margin-left: 10px;
+  margin-left: 20px;
   color: #444b54;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  white-space:nowrap
 }
 
 /* nav bar styling end */
@@ -86,6 +89,7 @@ nav .brand-logo {
 }
 
 /* old html */
+
 .detailBox {
   margin-bottom: 20px;
   height: 1000px;
@@ -190,35 +194,60 @@ h3 {
 
 /* media compatability */
 
-@media only screen and (max-width: 1220px) {
-  .card-image {
-    /* height: 150px; */
-    /* width: 100%; */
-  }
-  .card-title {
-    /* width: 150px; */
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .card-image {
-    /* height: 150px; */
-    /* width: 100%; */
-  }
-}
 
 @media only screen and (max-width: 663px) {
   .cocktailRow {
     display: block !important;
   }
 
-  /* .card-image {
-    height: 250px;
-    width: 250px;
+@media only screen and (max-width: 580px) {
+  nav .brand-logo {
+    font-size: 2rem;
+    font-weight: bold;
   }
-  .card-title {
-    width: 250px;
-  } */
 }
 
-/* media compatability end */
+@media only screen and (max-width: 542px) {
+  h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width:530px) {
+  nav .brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold
+  }
+}
+
+@media only screen and (max-width: 463px) {
+  h3 {
+    font-size: 2.25rem;
+  }
+}
+
+@media only screen and (max-width: 416px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width:402px) {
+  nav .brand-logo {
+    font-size: 1.2rem;
+    font-weight: bold
+  }
+}
+
+@media only screen and (max-width: 372px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media only screen and (max-width: 324px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+}
