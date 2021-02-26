@@ -245,21 +245,4 @@ h3 {
 .drinkImg {
   width: 75%;
 }
-
-}
-
-@media only screen and (max-width: 663px) {
-  .cocktailRow {
-    display: block !important;
-  }
-}
-  /* .card-image {
-    height: 250px;
-    width: 250px;
-  }
-}
-
-@media only screen and (max-width: 416px) {
-  h3 {
-    font-size: 2rem;
-  }
+}}
