@@ -1,3 +1,4 @@
+
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
@@ -71,6 +72,9 @@ const getDrink = (drinkSearch) => {
 
           drinkList[index].ingredients.forEach(elem => {
             if(elem.measure === null){elem.measure = '1 serving of'}
+            if(elem.measure === "Top"){elem.measure = '1 oz'}
+            if(elem.measure === "Whole"){elem.measure = '1 serving of'}
+            if(elem.measure === "Over"){elem.measure = '1 oz'}
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngList.push(strIngr)
           });
