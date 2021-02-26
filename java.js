@@ -1,67 +1,12 @@
+
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
 
-  document.getElementById('details').innerHTML =``
+  document.getElementById('details').innerHTML = ``
+  document.getElementById('cocktail-preview').innerHTML = ``
   getDrink(document.getElementById('searchValue').value)
   document.getElementById('searchValue').value = ''
-  // Axios request
-
-  // let drinkList = [
-  //   {
-  //     name: 'drink 1',
-  //     image: 'drink 1 image'
-  //   },
-  //   {
-  //     name: 'drink 2',
-  //     image: 'drink 2 image'
-  //   },
-  //   {
-  //     name: 'drink 3',
-  //     image: 'drink 3 image'
-  //   },
-  //   {
-  //     name: 'drink 4',
-  //     image: 'drink 4 image'
-  //   }
-  // ]
-
-
-  // document.getElementById('cocktail-preview').innerHTML = ''
-
-  // for(let i = 0; i < 4; i++){
-  //   document.getElementById('cocktail-preview').innerHTML += `
-  //   <div class="col s12 m6 l3 previewCard">
-  //     <div class="card">
-  //       <div class="card-image">
-  //         <img src="./example_card_image.jpg" alt="${drinkList[i].image}">
-  //       </div>
-  //       <div class="card-content">
-  //         <p class="card-title center-align">${drinkList[i].name}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  //   `
-  // }
-
-
 })
-
-
-
-
-
-
-// axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-//   .then(res => {
-//     console.log(res)
-//   })
-//   .catch(err => console.error(err))
-
-// axios.get('https://api.edamam.com/api/nutrition-data?app_id=c543d3f7&app_key=b07975353995fafd647e1d5c37e04dc0&ingr=1%20large%20apple')
-//   .then(res => {
-//     console.log(res)
-//   })
-//   .catch(err => console.error(err))
 
 const getDrink = (drinkSearch) => {
   console.log(drinkSearch)
@@ -108,7 +53,7 @@ const getDrink = (drinkSearch) => {
       for (let i = 0; i < length; i++) {
         document.getElementById('cocktail-preview').innerHTML += `
       <div class="col s12 m6 l3 previewCard">
-        <div class="card cardLink">
+        <div class="card">
           <div class="card-image">
             <img src="${drinkList[i].image}" alt="${drinkList[i].name}" class="cImg" data-index=${i}>
           </div>
@@ -120,45 +65,50 @@ const getDrink = (drinkSearch) => {
       `}
       document.addEventListener('click', event => {
         if (event.target.classList.contains('cImg')|| event.target.classList.contains('card-content')) {
-          console.log('hi')
-          let index = event.target.dataset.index
-          console.log(index)
 
-          let drinkIngList = []
+          let index = event.target.dataset.index
+          let drinkIngList = ''
+          let drinkIngStrList = []
 
           drinkList[index].ingredients.forEach(elem => {
-            if(elem.measure === null){elem.measure = '1 serving of'}
-            if(elem.measure === 'Whole'){elem.measure = '1'}
-            if(elem.measure === 'Top'){elem.measure = '1 oz'}
+            if (elem.measure === null) { elem.measure = '1 serving of ' }
+            drinkIngList += ` ${elem.measure} ${elem.ingredient},`
             let strIngr = `${elem.measure} ${elem.ingredient}`
-            drinkIngList.push(strIngr)
+            drinkIngStrList.push(strIngr)
           });
+          let editedDrinkIngList = drinkIngList.slice(0,-1)
 
-          let edamamRecipe = {
-            title: drinkList[index].name,
-            ingr: drinkIngList,
-            yield: '1 serving'
-          }    
-          console.log(edamamRecipe)
-          // console.log(edamamRecipe)
-          axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', edamamRecipe)
-            .then(res => {
+          let nutritionxRecipe = {
+            query: editedDrinkIngList
+          }
+
+          let headers = {
+            'x-app-id': '737c92b6',
+            'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
+            'x-remote-user-id': 0
+            }
+
+          console.log(editedDrinkIngList)
+          axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', nutritionxRecipe, {headers})
+            .then( res => {
               console.log(res)
-              console.log(edamamRecipe)
-              let totalNutr = res.data
-              
-              let totalCal = {
-                cal: totalNutr.calories,
-                carbCal: totalNutr.totalNutrientsKCal.CHOCDF_KCAL.quantity,
-                fatCal: totalNutr.totalNutrientsKCal.FAT_KCAL.quantity,
-                protCal: totalNutr.totalNutrientsKCal.PROCNT_KCAL.quantity
-              }
-              console.log(totalCal)
-              
-              let sugars = (totalNutr.totalNutrients.SUGAR.quantity).toFixed(2) + totalNutr.totalNutrients.SUGAR.unit
-              let carbs = (totalNutr.totalNutrients.CHOCDF.quantity).toFixed(2) + totalNutr.totalNutrients.CHOCDF.unit
-              let fat = (totalNutr.totalNutrients.FAT.quantity).toFixed(2) + totalNutr.totalNutrients.FAT.unit
-              let sodium = (totalNutr.totalNutrients.NA.quantity).toFixed(2) + totalNutr.totalNutrients.NA.unit
+              let totalNutr = res.data.foods
+
+              let cal = 0
+              let sugars = 0
+              let carbs = 0
+              let fat = 0
+              let sodium = 0
+
+              totalNutr.forEach(elem => {
+                cal += elem.nf_calories
+                sugars += elem.nf_sugars
+                carbs += elem.nf_total_carbohydrate
+                fat += elem.nf_total_fat
+                sodium += elem.nf_sodium
+              })
+
+              console.log(cal)
               console.log(sugars)
               console.log(carbs)
               console.log(fat)
@@ -205,19 +155,19 @@ const getDrink = (drinkSearch) => {
                         </div>
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
-                          <p>${totalCal.cal}</p>
+                          <p>${cal.toFixed(2)}kcal</p>
                           <hr>
                           <h3 class="values">Sugar</h3>
-                          <p>${sugars}</p>
+                          <p>${sugars.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Carbs</h3>
-                          <p>${carbs}</p>
+                          <p>${carbs.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Fat</h3>
-                          <p>${fat}</p>
+                          <p>${fat.toFixed(2)}g</p>
                           <hr>
                           <h3 class="values">Sodium</h3>
-                          <p>${sodium}</p>
+                          <p>${sodium.toFixed(2)}mg</p>
                           
                         </div>
                       </div>
@@ -225,39 +175,120 @@ const getDrink = (drinkSearch) => {
                   </div>
                 </div>
               `
-              edamamRecipe.ingr.forEach(elem => {
+              drinkIngStrList.forEach(elem => {
                 document.getElementById('ingredients').innerHTML += `
                   <li class="collection-item">${elem}</li>
                 `
-              });
+              })
             })
             .catch(err => console.error(err))
 
-          // document.getElementById('details').innerHTML = `  
-          //   <div class="row padding">
-          //     <div class="col s12 m12 l12 xl6">
-          //       <div class="detailBox">
-          //         <div class="row" id="drinkDisplay">
-          //           <img src="${drinkList[index].image}" alt="${drinkList[index].name}" id="drinkImg">
-          //           <h1>"${drinkList[index].name}"</h1>
+          // drinkList[index].ingredients.forEach(elem => {
+          //   if(elem.measure === null){elem.measure = '1 serving of'}
+          //   if(elem.measure === 'Whole'){elem.measure = '1'}
+          //   if(elem.measure === 'Top'){elem.measure = '1 oz'}
+          //   let strIngr = `${elem.measure} ${elem.ingredient}`
+          //   drinkIngList.push(strIngr)
+          // });
+
+          // let edamamRecipe = {
+          //   title: drinkList[index].name,
+          //   ingr: drinkIngList,
+          //   yield: '1 serving'
+          // }    
+          // console.log(edamamRecipe)
+          // // console.log(edamamRecipe)
+          // axios.post('https://api.edamam.com/api/nutrition-details?app_id=6aa4f9ec&app_key=125f294556911ca7bff9a6b2951b1534', edamamRecipe)
+          //   .then(res => {
+          //     console.log(res)
+          //     console.log(edamamRecipe)
+          //     let totalNutr = res.data
+              
+          //     let totalCal = {
+          //       cal: totalNutr.calories,
+          //       carbCal: totalNutr.totalNutrientsKCal.CHOCDF_KCAL.quantity,
+          //       fatCal: totalNutr.totalNutrientsKCal.FAT_KCAL.quantity,
+          //       protCal: totalNutr.totalNutrientsKCal.PROCNT_KCAL.quantity
+          //     }
+          //     console.log(totalCal)
+              
+          //     let sugars = (totalNutr.totalNutrients.SUGAR.quantity).toFixed(2) + totalNutr.totalNutrients.SUGAR.unit
+          //     let carbs = (totalNutr.totalNutrients.CHOCDF.quantity).toFixed(2) + totalNutr.totalNutrients.CHOCDF.unit
+          //     let fat = (totalNutr.totalNutrients.FAT.quantity).toFixed(2) + totalNutr.totalNutrients.FAT.unit
+          //     let sodium = (totalNutr.totalNutrients.NA.quantity).toFixed(2) + totalNutr.totalNutrients.NA.unit
+          //     console.log(sugars)
+          //     console.log(carbs)
+          //     console.log(fat)
+          //     console.log(sodium)
+
+          //     document.getElementById('details').innerHTML = `  
+          //       <div class="row padding">
+          //         <!-- first column with image and drink name -->
+          //         <div class="col s12 m12 l12 xl4">
+          //           <div class="deetsBox">
+          //             <div class="txtCenter">
+          //               <h1>${drinkList[index].name}</h1>
+          //               <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
+          //                 class="drinkImg" id="drinkImg">
+          //             </div>
+          //           </div>
           //         </div>
-          //         <div class="row collection" id="ingredients">
-          //           <a href="#!" class="collection-item"></a>
-          //           <a href="#!" class="collection-item active"></a>
-          //           <a href="#!" class="collection-item"></a>
-          //           <a href="#!" class="collection-item"></a>
+          //         <!-- ingredients list and instructions -->
+          //         <div class="col s12 m12 l12 xl4">
+          //           <div class="deetsBox">
+          //             <h4 class="ingr">Ingredients</h4>
+          //             <ul class="ingr ingrList">
+          //               <li class="collection " id="ingredients"></li>
+          //             </ul>
+          //             <div class="instr" id="instructions">
+          //               <h4>Instructions</h4>
+          //               <p>${drinkList[index].instruction}</p>
+          //             </div>
+          //           </div>
+          //         </div>
+
+          //         <!-- nutritional information -->
+          //         <div class="col s12 m12 l12 xl4">
+          //           <div class="deetsBox txtCenter">
+          //             <div class="">
+          //               <h1>Nutrients</h1>
+          //             </div>
+
+          //             <div class="row">
+          //               <div class="col txtCenter lNutr">
+          //                 <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
+          //                   id="drinkImg">
+          //                 <h2>calorie percent</h2>
+          //               </div>
+          //               <div class="col rNutr">
+          //                 <h3 class="values">Calorie</h3>
+          //                 <p>${totalCal.cal}</p>
+          //                 <hr>
+          //                 <h3 class="values">Sugar</h3>
+          //                 <p>${sugars}</p>
+          //                 <hr>
+          //                 <h3 class="values">Carbs</h3>
+          //                 <p>${carbs}</p>
+          //                 <hr>
+          //                 <h3 class="values">Fat</h3>
+          //                 <p>${fat}</p>
+          //                 <hr>
+          //                 <h3 class="values">Sodium</h3>
+          //                 <p>${sodium}</p>
+                          
+          //               </div>
+          //             </div>
+          //           </div>
           //         </div>
           //       </div>
-          //     </div>
-          
-          //     <div class="col s12 m12 l12 xl6" id="nutrition">
-          //       <div class="detailBox">
-          //         <h5>Instructions</h5>
-          //         <p>${drinkList[index].instruction}</p>
-          //       </div>
-          //     </div>
-          //   </div>
-          // `
+          //     `
+          //     edamamRecipe.ingr.forEach(elem => {
+          //       document.getElementById('ingredients').innerHTML += `
+          //         <li class="collection-item">${elem}</li>
+          //       `
+          //     });
+          //   })
+          //   .catch(err => console.error(err))
         }
       })
     })
