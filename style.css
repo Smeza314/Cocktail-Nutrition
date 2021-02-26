@@ -131,6 +131,7 @@ hr {
 
 .drinkHead {
   margin-top: 1px;
+  font-size: 24px;
 }
 .nutri {
   text-align: center;
@@ -160,7 +161,7 @@ hr {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: -10px;
-  margin-left: 15px;
+  margin-left: 0px;
   text-align: left;
   font-weight: bold;
 }
@@ -171,14 +172,12 @@ hr {
   text-align: left;
 }
 
-.lNutr {
-  width: 100%;
-  text-align: center;
-}
-
 .rNutr {
-  width: 50%;
+  /* margin-left: 6%; */
   text-align: left;
+  width: 100%;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
 }
 
 .padding {
@@ -212,7 +211,32 @@ hr {
   justify-content: center;
 }
 
+.nutrDetails {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* End of Drink Detail Styling */
+
+/* piechart and percent bar */
+
+.barFill {
+  padding-left: 8px;
+  padding-right: 6px;
+  background-color: #009f96;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  font-size: small;
+}
+
+#calBar p {
+  margin-bottom: 1px;
+}
+
+/* end of piechart and percent bar */
 
 /* space to be filled (stock area) */
 

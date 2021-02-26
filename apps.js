@@ -32,6 +32,14 @@ const getDrink = (drinkSearch) => {
           if (drink[strIng]) {
             let ingredient = drink['strIngredient' + j]
             let measure = drink['strMeasure' + j]
+
+            if(measure !== null){
+              if (measure.includes('cL')) { measure = measure.replace('cL', 'tbsp')}
+              if (measure.includes('Cl')) { measure = measure.replace('Cl', 'tbsp')}
+              if (measure.includes('CL')) { measure = measure.replace('CL', 'tbsp')}
+              if (measure.includes('cl')) { measure = measure.replace('cl', 'tbsp')}
+            }
+
             let recipe = {
               'ingredient': ingredient,
               'measure': measure
@@ -72,7 +80,7 @@ const getDrink = (drinkSearch) => {
           let drinkIngStrList = []
 
           drinkList[index].ingredients.forEach(elem => {
-            if (elem.measure === null) { elem.measure = '1 serving of ' }
+            if (elem.measure === null) { elem.measure = '' }
             drinkIngList += ` ${elem.measure} ${elem.ingredient},`
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngStrList.push(strIngr)
@@ -94,7 +102,11 @@ const getDrink = (drinkSearch) => {
             .then(res => {
               console.log(res)
               let totalNutr = res.data.foods
-
+              let calPercent = 0
+              let sugarPercent = 0
+              let carbPercent = 0
+              let sodiumPercent = 0
+              let fatPercent = 0
               let cal = 0
               let sugars = 0
               let carbs = 0
@@ -109,6 +121,12 @@ const getDrink = (drinkSearch) => {
                 sodium += elem.nf_sodium
               })
 
+              calPercent = (cal / 2000)*100
+              sugarPercent = (sugars / 100)*100
+              carbPercent = (carbs / 275)*100
+              fatPercent = (fat / 70)*100
+              sodiumPercent = (sodium / 2300 )*100
+              console.log(calPercent)
               console.log(cal)
               console.log(sugars)
               console.log(carbs)
@@ -122,7 +140,7 @@ const getDrink = (drinkSearch) => {
                     <div class="deetsBox">
                       <div class="txtCenter">
                       <div class="row">
-                      <h1 class="drinkHead">${drinkList[index].name}</h1>
+                        <h1 class="nutri">Nutrients </h1>
                       </div>
                       <div class="row">
                       <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
@@ -152,23 +170,33 @@ const getDrink = (drinkSearch) => {
                         <h1 class="nutri">Nutrients </h1>
                       </div>
 
-                      <div class="row">
-                        </div>
+                      <div class="row nutrDetails">
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
-                          <p class="pValues">${cal.toFixed(2)}kcal</p>
-                          <hr>
+                          <p>${cal.toFixed(2)}kcal</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${calPercent}%">${Math.floor(calPercent)}%</div>
+                          </div>
                           <h3 class="values">Sugar</h3>
-                          <p class="pValues">${sugars.toFixed(2)}g</p>
-                          <hr>
+                          <p>${sugars.toFixed(2)}g</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${sugarPercent}%">${Math.floor(sugarPercent)}%</div>
+                          </div>
                           <h3 class="values">Carbs</h3>
-                          <p class="pValues">${carbs.toFixed(2)}g</p>
-                          <hr>
+                          <p>${carbs.toFixed(2)}g</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${carbPercent}%">${Math.floor(carbPercent)}%</div>
+                          </div>
                           <h3 class="values">Fat</h3>
-                          <p class="pValues">${fat.toFixed(2)}g</p>
-                          <hr>
+                          <p>${fat.toFixed(2)}g</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${fatPercent}%">${Math.floor(fatPercent)}%</div>
+                          </div>
                           <h3 class="values">Sodium</h3>
-                          <p class="pValues">${sodium.toFixed(2)}mg</p>
+                          <p>${sodium.toFixed(2)}mg</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${sodiumPercent}%">${Math.floor(sodiumPercent)}%</div>
+                          </div>
                           
                         </div>
                       </div>
