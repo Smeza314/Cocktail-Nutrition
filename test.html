@@ -17,6 +17,8 @@
       console.log(res)
 
       for (i = 0; i < res.data.drinks.length; i++) {
+        console.log('-------------')
+        console.log(res.data.drinks[i].strDrink)
         for (j=1;j<15;j++) {
           strMeasures = "strMeasure" + j
           strIngredient = "strIngredient" +j
