@@ -91,7 +91,7 @@ nav .brand-logo {
   height: auto;
   width: auto;
   max-width: 300px;
-  max-height: ;
+  /* max-height:  */
 }
 
 /* old html */
@@ -255,7 +255,9 @@ h3 {
 @media only screen and (max-width:530px) {
   nav .brand-logo {
       font-size: 1.5rem;
-      font-weight: bold
+      font-weight: bold;
+      display: inline-block;
+      white-space: nowrap;
     }
   }
 @media only screen and (max-width: 463px) {
@@ -285,3 +287,4 @@ h3 {
     font-size: 1.75rem;
     }
   }
+}}}
