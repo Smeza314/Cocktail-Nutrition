@@ -1,3 +1,4 @@
+let drinkList = []
 
 document.getElementById('search').addEventListener('click', event => {
   event.preventDefault()
@@ -13,7 +14,7 @@ const getDrink = (drinkSearch) => {
   axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkSearch}`)
     .then(res => {
       console.log(res)
-      let drinkList = []
+      drinkList = []
       let length = res.data.drinks.length
       if (length > 4) {
         length = 4
