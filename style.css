@@ -1,6 +1,8 @@
 /* nav bar styling  */
 
-body {}
+html * {
+  font-family: 'Comfortaa', cursive;
+}
 
 nav {
   background-color: #009f96;
@@ -88,7 +90,7 @@ nav .brand-logo {
   height: auto;
   width: auto;
   max-width: 300px;
-  max-height: ;
+  /* max-height: ; */
 }
 
 /* old html */
@@ -130,6 +132,7 @@ hr {
   margin-top: 1px;
   font-size: 24px;
 }
+
 .nutri {
   text-align: center;
   margin-top: 10px;
@@ -197,6 +200,7 @@ hr {
   justify-content: center;
   padding: 0px;
   height: 50%;
+  margin-top: 10px;
 }
 
 .card-image {
@@ -261,10 +265,9 @@ h3 {
 }
 
 @media only screen and (max-width: 420px) {
-.drinkImg {
-  width: 75%;
-}
-
+  .drinkImg {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 663px) {
