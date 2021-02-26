@@ -65,7 +65,7 @@ const getDrink = (drinkSearch) => {
       </div>
       `}
       document.addEventListener('click', event => {
-        if (event.target.classList.contains('cImg')|| event.target.classList.contains('card-content')) {
+        if (event.target.classList.contains('cImg') || event.target.classList.contains('card-content')) {
 
           let index = event.target.dataset.index
           let drinkIngList = ''
@@ -77,7 +77,7 @@ const getDrink = (drinkSearch) => {
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngStrList.push(strIngr)
           });
-          let editedDrinkIngList = drinkIngList.slice(0,-1)
+          let editedDrinkIngList = drinkIngList.slice(0, -1)
 
           let nutritionxRecipe = {
             query: editedDrinkIngList
@@ -87,14 +87,18 @@ const getDrink = (drinkSearch) => {
             'x-app-id': '737c92b6',
             'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
             'x-remote-user-id': 0
-            }
+          }
 
           console.log(editedDrinkIngList)
-          axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', nutritionxRecipe, {headers})
-            .then( res => {
+          axios.post('https://trackapi.nutritionix.com/v2/natural/nutrients', nutritionxRecipe, { headers })
+            .then(res => {
               console.log(res)
               let totalNutr = res.data.foods
-
+              let calPercent = 0
+              let sugarPercent = 0
+              let carbPercent = 0
+              let sodiumPercent = 0
+              let fatPercent = 0
               let cal = 0
               let sugars = 0
               let carbs = 0
@@ -109,6 +113,12 @@ const getDrink = (drinkSearch) => {
                 sodium += elem.nf_sodium
               })
 
+              calPercent = (cal / 2000)*100
+              sugarPercent = (sugars / 100)*100
+              carbPercent = (carbs / 275)*100
+              fatPercent = (fat / 70)*100
+              sodiumPercent = (sodium / 2300 )*100
+              console.log(calPercent)
               console.log(cal)
               console.log(sugars)
               console.log(carbs)
@@ -148,27 +158,33 @@ const getDrink = (drinkSearch) => {
                         <h1>Nutrients</h1>
                       </div>
 
-                      <div class="row">
-                        <div class="col txtCenter lNutr">
-                          <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview" alt="drinkimg"
-                            id="drinkImg">
-                          <h2>calorie percent</h2>
-                        </div>
+                      <div class="row nutrDetails">
                         <div class="col rNutr">
                           <h3 class="values">Calorie</h3>
                           <p>${cal.toFixed(2)}kcal</p>
-                          <hr>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${calPercent}%">${Math.floor(calPercent)}%</div>
+                          </div>
                           <h3 class="values">Sugar</h3>
                           <p>${sugars.toFixed(2)}g</p>
-                          <hr>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${sugarPercent}%">${Math.floor(sugarPercent)}%</div>
+                          </div>
                           <h3 class="values">Carbs</h3>
                           <p>${carbs.toFixed(2)}g</p>
-                          <hr>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${carbPercent}%">${Math.floor(carbPercent)}%</div>
+                          </div>
                           <h3 class="values">Fat</h3>
                           <p>${fat.toFixed(2)}g</p>
-                          <hr>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${fatPercent}%">${Math.floor(fatPercent)}%</div>
+                          </div>
                           <h3 class="values">Sodium</h3>
                           <p>${sodium.toFixed(2)}mg</p>
+                          <div class="w3-light-grey w3-round-xlarge">
+                            <div class="w3-container barFill w3-round-xlarge" style="width:${sodiumPercent}%">${Math.floor(sodiumPercent)}%</div>
+                          </div>
                           
                         </div>
                       </div>
@@ -204,7 +220,7 @@ const getDrink = (drinkSearch) => {
           //     console.log(res)
           //     console.log(edamamRecipe)
           //     let totalNutr = res.data
-              
+
           //     let totalCal = {
           //       cal: totalNutr.calories,
           //       carbCal: totalNutr.totalNutrientsKCal.CHOCDF_KCAL.quantity,
@@ -212,7 +228,7 @@ const getDrink = (drinkSearch) => {
           //       protCal: totalNutr.totalNutrientsKCal.PROCNT_KCAL.quantity
           //     }
           //     console.log(totalCal)
-              
+
           //     let sugars = (totalNutr.totalNutrients.SUGAR.quantity).toFixed(2) + totalNutr.totalNutrients.SUGAR.unit
           //     let carbs = (totalNutr.totalNutrients.CHOCDF.quantity).toFixed(2) + totalNutr.totalNutrients.CHOCDF.unit
           //     let fat = (totalNutr.totalNutrients.FAT.quantity).toFixed(2) + totalNutr.totalNutrients.FAT.unit
@@ -276,7 +292,7 @@ const getDrink = (drinkSearch) => {
           //                 <hr>
           //                 <h3 class="values">Sodium</h3>
           //                 <p>${sodium}</p>
-                          
+
           //               </div>
           //             </div>
           //           </div>
