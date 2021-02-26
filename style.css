@@ -66,11 +66,15 @@ nav .brand-logo {
 
 /* Drink Detail Styling */
 
+.previewContainer {
+  width: 85%;
+}
+
 .txtCenter {
   text-align: center;
 }
 
-#drinkImg {
+.drinkImg {
   margin: 2rem;
   margin-bottom: -2rem;
   border-radius: 50%;
@@ -78,10 +82,10 @@ nav .brand-logo {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  width: 50%;
 }
 
 /* old html */
-
 .detailBox {
   margin-bottom: 20px;
   height: 1000px;
@@ -96,7 +100,7 @@ nav .brand-logo {
 
 .deetsBox {
   margin-bottom: 20px;
-  height: 500px;
+  height: 550px;
   border: 1px solid gray;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -106,6 +110,10 @@ nav .brand-logo {
   box-shadow: 2px 1px 11px -3px black;
 }
 
+hr {
+  margin-right: 20px;
+}
+
 .collection {
   width: 100%;
 }
@@ -113,6 +121,11 @@ nav .brand-logo {
 .ingr {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.ingrList {
+  overflow-y: scroll;
+  height: 215px;
 }
 
 .instr {
@@ -152,15 +165,14 @@ nav .brand-logo {
 .card .card-content {
   height: 60px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   padding: 0px;
-  height: 75px;
+  height: 50%;
 }
 
 .card-image {
-  height: 200px;
-  width: 200px;
+  width: 100%;
 }
 
 .cocktailRow {
@@ -180,19 +192,33 @@ h3 {
 
 @media only screen and (max-width: 1220px) {
   .card-image {
-    height: 150px;
-    width: 150px;
+    /* height: 150px; */
+    /* width: 100%; */
   }
   .card-title {
-    width: 150px;
+    /* width: 150px; */
   }
 }
 
 @media only screen and (max-width: 992px) {
   .card-image {
+    /* height: 150px; */
+    /* width: 100%; */
+  }
+}
+
+@media only screen and (max-width: 663px) {
+  .cocktailRow {
+    display: block !important;
+  }
+
+  /* .card-image {
     height: 250px;
     width: 250px;
   }
+  .card-title {
+    width: 250px;
+  } */
 }
 
 /* media compatability end */
