@@ -32,6 +32,14 @@ const getDrink = (drinkSearch) => {
           if (drink[strIng]) {
             let ingredient = drink['strIngredient' + j]
             let measure = drink['strMeasure' + j]
+
+            if(measure !== null){
+              if (measure.includes('cL')) { measure = measure.replace('cL', 'tbsp')}
+              if (measure.includes('Cl')) { measure = measure.replace('Cl', 'tbsp')}
+              if (measure.includes('CL')) { measure = measure.replace('CL', 'tbsp')}
+              if (measure.includes('cl')) { measure = measure.replace('cl', 'tbsp')}
+            }
+
             let recipe = {
               'ingredient': ingredient,
               'measure': measure
@@ -72,7 +80,7 @@ const getDrink = (drinkSearch) => {
           let drinkIngStrList = []
 
           drinkList[index].ingredients.forEach(elem => {
-            if (elem.measure === null) { elem.measure = '1 serving of ' }
+            if (elem.measure === null) { elem.measure = '' }
             drinkIngList += ` ${elem.measure} ${elem.ingredient},`
             let strIngr = `${elem.measure} ${elem.ingredient}`
             drinkIngStrList.push(strIngr)
@@ -84,8 +92,8 @@ const getDrink = (drinkSearch) => {
           }
 
           let headers = {
-            'x-app-id': '737c92b6',
-            'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
+            'x-app-id': '1134500c',
+            'x-app-key': 'facd7a17165e187875686dccb6161af8',
             'x-remote-user-id': 0
             }
 
