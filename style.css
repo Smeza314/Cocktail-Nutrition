@@ -1,5 +1,7 @@
 /* nav bar styling  */
 
+body {}
+
 nav {
   background-color: #009f96;
 }
@@ -83,6 +85,10 @@ nav .brand-logo {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   width: 50%;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: ;
 }
 
 /* old html */
@@ -117,27 +123,49 @@ hr {
 
 .collection {
   width: 100%;
+  margin-top: 10px;
 }
 
+.drinkHead {
+  margin-top: 1px;
+}
+.nutri {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+.col-rNutr {}
+
 .ingr {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .ingrList {
   overflow-y: auto;
   height: 215px;
+  margin-bottom: 60px;
 }
 
 .instr {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .values {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: -10px;
+  margin-left: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.pValues {
+  margin-bottom: 0;
+  margin-left: 15px;
+  text-align: left;
 }
 
 .rNutr {
@@ -229,6 +257,13 @@ h3 {
     /* height: 150px; */
     /* width: 100%; */
   }
+}
+
+@media only screen and (max-width: 420px) {
+.drinkImg {
+  width: 75%;
+}
+
 }
 
 @media only screen and (max-width: 663px) {

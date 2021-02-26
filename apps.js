@@ -84,8 +84,8 @@ const getDrink = (drinkSearch) => {
           }
 
           let headers = {
-            'x-app-id': '737c92b6',
-            'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
+            'x-app-id': '1134500c',
+            'x-app-key': 'facd7a17165e187875686dccb6161af8',
             'x-remote-user-id': 0
           }
 
@@ -131,9 +131,13 @@ const getDrink = (drinkSearch) => {
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox">
                       <div class="txtCenter">
-                        <h1>${drinkList[index].name}</h1>
-                        <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
-                          class="drinkImg" id="drinkImg">
+                      <div class="row">
+                      <h1 class="drinkHead">${drinkList[index].name}</h1>
+                      </div>
+                      <div class="row">
+                      <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
+                        class="drinkImg" id="drinkImg">
+                       </div>
                       </div>
                     </div>
                   </div>
@@ -154,8 +158,8 @@ const getDrink = (drinkSearch) => {
                   <!-- nutritional information -->
                   <div class="col s12 m12 l12 xl4">
                     <div class="deetsBox txtCenter">
-                      <div class="">
-                        <h1>Nutrients</h1>
+                      <div class="nutriBox">
+                        <h1 class="nutri">Nutrients </h1>
                       </div>
 
                       <div class="row nutrDetails">
