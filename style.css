@@ -128,6 +128,7 @@ hr {
 
 .drinkHead {
   margin-top: 1px;
+  font-size: 24px;
 }
 .nutri {
   text-align: center;
@@ -157,7 +158,7 @@ hr {
   font-size: 2rem;
   margin-top: 0;
   margin-bottom: -10px;
-  margin-left: 15px;
+  margin-left: 0px;
   text-align: left;
   font-weight: bold;
 }

@@ -140,7 +140,7 @@ const getDrink = (drinkSearch) => {
                     <div class="deetsBox">
                       <div class="txtCenter">
                       <div class="row">
-                      <h1 class="drinkHead">${drinkList[index].name}</h1>
+                        <h1 class="nutri">Nutrients </h1>
                       </div>
                       <div class="row">
                       <img src="${drinkList[index].image}" alt="${drinkList[index].name}"
