@@ -12,7 +12,7 @@ nav .brand-logo {
   font-size: 2rem;
   font-weight: bold;
   display: inline-block;
-  white-space:nowrap
+  white-space: nowrap
 }
 
 /* nav bar styling end */
@@ -133,6 +133,7 @@ hr {
   margin-top: 1px;
   font-size: 24px;
 }
+
 .nutri {
   text-align: center;
   margin-top: 10px;
@@ -246,27 +247,41 @@ h3 {
 
 /* media compatability */
 
-
 @media only screen and (max-width: 663px) {
   .cocktailRow {
     display: block !important;
   }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width:530px) {
   nav .brand-logo {
-    font-size: 2rem;
-    font-weight: bold;
+      font-size: 1.5rem;
+      font-weight: bold
+    }
   }
-}
+@media only screen and (max-width: 463px) {
+    h3 {
+      font-size: 2.25rem;
+    }
 
-@media only screen and (max-width: 542px) {
-  h3 {
-    font-size: 2.5rem;
+  @media only screen and (max-width: 420px) {
+    .drinkImg {
+        width: 75%;
+      }
+      
+@media only screen and (max-width: 416px) {
+    h3 {
+        font-size: 2rem;
+      }
+      }
+  
+@media only screen and (max-width:402px) {
+        nav .brand-logo {
+          font-size: 1.2rem;
+          font-weight: bold
+        }
+      }
+@media only screen and (max-width: 372px) {
+    h3 {
+    font-size: 1.75rem;
+    }
   }
-}
-
-@media only screen and (max-width: 420px) {
-.drinkImg {
-  width: 75%;
-}
-}}
