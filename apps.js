@@ -7,7 +7,7 @@ document.getElementById('search').addEventListener('click', event => {
   document.getElementById('cocktail-preview').innerHTML = ``
   getDrink(document.getElementById('searchValue').value)
   document.getElementById('searchValue').value = ''
-})
+}) 
 
 const getDrink = (drinkSearch) => {
   axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkSearch}`)
