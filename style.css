@@ -167,6 +167,8 @@ hr {
   margin-top: 5px;
   margin-left: 30px;
   margin-right: 30px;
+  overflow-y: auto;
+  height: 180px;
 }
 
 .values {
