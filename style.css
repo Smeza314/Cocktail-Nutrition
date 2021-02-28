@@ -1,10 +1,86 @@
-/* Drink Detail Styling */
+html * {
+  font-family: 'Comfortaa', cursive;
+}
 
-#drinkDisplay {
+/* nav bar styling  */
+
+nav {
+  background-color: #009f96;
+}
+
+nav .brand-logo {
+  margin-left: 20px;
+  color: #444b54;
+  font-size: 2rem;
+  font-weight: bold;
+  display: inline-block;
+  white-space: nowrap
+}
+
+.logo {
+  width: 55px;
+}
+
+/* nav bar styling end */
+
+/* title area styling */
+
+#title {
+  margin: auto;
+  padding: 10px;
+}
+
+#titleHeader {
+  background: white;
+  color: #444b54;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#info {
+  margin: auto;
+  padding: 10px;
+}
+
+.paragraph1 {
+  background: white;
+  color: #444b54;
+  margin: 0px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#searchBar {
+  overflow: hidden;
+  width: 300px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-#drinkImg {
+.searchBar1 {
+  text-align: center;
+  width: 200px !important;
+}
+
+/* title area styling */
+
+/* Drink Detail Styling */
+
+.previewContainer {
+  width: 85%;
+}
+
+.txtCenter {
+  text-align: center;
+}
+
+.drinkImg {
   margin: 2rem;
   margin-bottom: -2rem;
   border-radius: 50%;
@@ -12,7 +88,13 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  width: 50%;
+  height: auto;
+  width: auto;
+  max-width: 300px;
 }
+
+/* old html */
 
 .detailBox {
   margin-bottom: 20px;
@@ -26,9 +108,83 @@
   box-shadow: 2px 1px 11px -3px black;
 }
 
-#ingredients {
-  margin-left: 20px;
+.deetsBox {
+  margin-bottom: 20px;
+  height: 550px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 2px 1px 11px -3px black;
+}
+
+hr {
   margin-right: 20px;
+}
+
+.collection {
+  width: 100%;
+  /* margin-top: 10px; */
+}
+
+.drinkHead {
+  margin-top: 1px;
+  font-size: 24px;
+}
+
+.nutri {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.ingr {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 25px;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.ingrList {
+  overflow-y: auto;
+  height: 215px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.instr {
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  overflow-y: auto;
+  height: 180px;
+}
+
+.values {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: -10px;
+  margin-left: 0px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.pValues {
+  margin-bottom: 0;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.rNutr {
+  text-align: left;
+  width: 100%;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
 }
 
 .padding {
@@ -36,93 +192,141 @@
   padding-left: 5%;
 }
 
-/* End of Drink Detail Styling */
-
-/* Image Preview Styling */
-
-.card-content {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-image {
-  height: 200px;
-  width: 200px;
-}
-
 .previewCard {
   display: flex;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
 }
 
-@media only screen and (max-width: 1220px) {
-  .card-image {
-    height: 150px;
-    width: 150px;
-  }
+.card .card-content {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  height: 50%;
+  margin-top: 10px;
 }
 
-@media only screen and (max-width: 992px) {
-  .card-image {
-    height: 250px;
-    width: 250px;
-  }
+.card-image {
+  width: 100%;
 }
 
-/* End of Image Preview Styling */
-
-#title {
-  border: 1px solid #3c4043;
-  background-color: white;
-  margin: auto;
-  width: 60%;
-  padding: 10px;
+.cocktailRow {
+  display: flex !important;
+  justify-content: center;
 }
 
-#titleHeader {
-  background: white;
-  color: black;
-  padding: 10px;
-  margin-top: 1px;
+.nutrDetails {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* End of Drink Detail Styling */
+
+/* percent bar */
+
+.barFill {
+  padding-left: 8px;
+  padding-right: 6px;
+  padding-top: 1px;
+  background-color: #009f96;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+
+#calBar p {
   margin-bottom: 1px;
-  text-align: center;
 }
 
-#info {
-  border: 1px solid #3c4043;
-  background-color: white;
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  margin-top: 10px;
+/* end of percent bar */
+
+/* space to be filled (stock area) */
+
+h3 {
+  color: gray;
 }
 
-.paragraph1 {
-  background: white;
-  color: black;
-  padding: 10px;
-  text-align: center;
+.cImg {
+  cursor: pointer;
 }
 
-#searchBar {
-  overflow: hidden;
-  background-color: white;
-  border: 1px solid #3c4043;
-  margin-top: 10px;
-  width: 30%;
-  margin-left: 35%;
-  margin-bottom: 20px;
+/* media compatability */
+
+@media only screen and (max-width: 663px) {
+  .cocktailRow {
+    display: block !important;
+  }
 }
 
-.searchBar1 {
-  float: left;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  color: black;
-  text-align: center;
+@media only screen and (max-width:530px) {
+  nav .brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (max-width: 463px) {
+  h3 {
+    font-size: 2.25rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .drinkImg {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 416px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width:402px) {
+  nav .brand-logo {
+    font-size: 1.2rem;
+    font-weight: bold
+  }
+}
+
+@media only screen and (max-width: 372px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* scroll bar updates */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
