@@ -4,7 +4,7 @@ The Bartender's Friend is a web application designed to provide users with recip
 
 ## How It Works
 
-<a src="https://smeza314.github.io/Cocktail-Nutrition/">Bartender's Friend</a>
+<a href="https://smeza314.github.io/Cocktail-Nutrition/">Bartender's Friend</a>
 
 1. User searches for the name of their favorite cocktail.
 
@@ -18,10 +18,6 @@ The Bartender's Friend is a web application designed to provide users with recip
 ## Demo
 <p>
 <img src="./images/cocktailcentral1.gif" alt="app demo 1" width="500"/>
-<img src="./images/cocktailcentral2.gif" alt="app demo 2" width="500"/>
-</p>
-
-<p>
 <img src="./images/cocktailcentral2.gif" alt="app demo 2" width="500"/>
 </p>
 
