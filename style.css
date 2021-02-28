@@ -132,7 +132,7 @@ hr {
 
 .collection {
   width: 100%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .drinkHead {
@@ -264,7 +264,6 @@ h3 {
   cursor: pointer;
 }
 
-
 /* media compatability */
 
 @media only screen and (max-width: 1220px) {
@@ -304,38 +303,67 @@ h3 {
 
 @media only screen and (max-width:530px) {
   nav .brand-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      display: inline-block;
-      white-space: nowrap;
-    }
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
   }
-@media only screen and (max-width: 463px) {
-    h3 {
-      font-size: 2.25rem;
-    }
-  }
+}
 
-  @media only screen and (max-width: 420px) {
-    .drinkImg {
-        width: 75%;
-      }
-    }
-      
-@media only screen and (max-width: 416px) {
-    h3 {
-        font-size: 2rem;
-      }
-      }
-  
-@media only screen and (max-width:402px) {
-        nav .brand-logo {
-          font-size: 1.2rem;
-          font-weight: bold
-        }
-      }
-@media only screen and (max-width: 372px) {
-    h3 {
-    font-size: 1.75rem;
-    }
+@media only screen and (max-width: 463px) {
+  h3 {
+    font-size: 2.25rem;
   }
+}
+
+@media only screen and (max-width: 420px) {
+  .drinkImg {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 416px) {
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width:402px) {
+  nav .brand-logo {
+    font-size: 1.2rem;
+    font-weight: bold
+  }
+}
+
+@media only screen and (max-width: 372px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+
+/* scroll bar updates */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
