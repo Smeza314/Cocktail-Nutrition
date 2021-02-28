@@ -300,6 +300,7 @@ h3 {
   .cocktailRow {
     display: block !important;
   }
+}
 
 @media only screen and (max-width:530px) {
   nav .brand-logo {
@@ -313,11 +314,13 @@ h3 {
     h3 {
       font-size: 2.25rem;
     }
+  }
 
   @media only screen and (max-width: 420px) {
     .drinkImg {
         width: 75%;
       }
+    }
       
 @media only screen and (max-width: 416px) {
     h3 {
@@ -336,4 +339,3 @@ h3 {
     font-size: 1.75rem;
     }
   }
-}}}
