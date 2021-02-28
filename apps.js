@@ -95,8 +95,8 @@ document.addEventListener('click', event => {
     }
 
     let headers = {
-      'x-app-id': '1134500c',
-      'x-app-key': 'facd7a17165e187875686dccb6161af8',
+      'x-app-id': '737c92b6',
+      'x-app-key': '5f6a635e8cb4dee5fd687203394404fd',
       'x-remote-user-id': 0
     }
 
