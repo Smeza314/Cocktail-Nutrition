@@ -1,8 +1,8 @@
-/* nav bar styling  */
-
 html * {
   font-family: 'Comfortaa', cursive;
 }
+
+/* nav bar styling  */
 
 nav {
   background-color: #009f96;
@@ -26,10 +26,7 @@ nav .brand-logo {
 /* title area styling */
 
 #title {
-  /* border: 1px solid #3c4043; */
-  /* background-color: white; */
   margin: auto;
-  /* width: 60%; */
   padding: 10px;
 }
 
@@ -40,13 +37,11 @@ nav .brand-logo {
   margin-top: 20px;
   margin-bottom: 1px;
   text-align: center;
+  font-size: 50px;
 }
 
 #info {
-  /* border: 1px solid #3c4043;
-  background-color: white; */
   margin: auto;
-  /* width: 50%; */
   padding: 10px;
 }
 
@@ -97,7 +92,6 @@ nav .brand-logo {
   height: auto;
   width: auto;
   max-width: 300px;
-  /* max-height: ; */
 }
 
 /* old html */
@@ -146,13 +140,13 @@ hr {
   font-size: 40px;
 }
 
-.col-rNutr {}
-
 .ingr {
   margin-left: 30px;
   margin-right: 30px;
-  margin-top: 30px;
+  margin-top: 25px;
   font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 0;
 }
 
 .ingrList {
@@ -187,7 +181,6 @@ hr {
 }
 
 .rNutr {
-  /* margin-left: 6%; */
   text-align: left;
   width: 100%;
   padding-left: 3rem !important;
@@ -210,7 +203,6 @@ hr {
 .card .card-content {
   height: 60px;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   padding: 0px;
   height: 50%;
@@ -233,7 +225,7 @@ hr {
 
 /* End of Drink Detail Styling */
 
-/* piechart and percent bar */
+/* percent bar */
 
 .barFill {
   padding-left: 8px;
@@ -252,7 +244,7 @@ hr {
   margin-bottom: 1px;
 }
 
-/* end of piechart and percent bar */
+/* end of percent bar */
 
 /* space to be filled (stock area) */
 
@@ -280,18 +272,6 @@ h3 {
   .card-image {
     /* height: 150px; */
     /* width: 100%; */
-  }
-}
-
-/* @media only screen and (max-width: 750px) {
-  .brand-logo {
-    visibility: hidden;
-  }
-} */
-
-@media only screen and (max-width: 420px) {
-  .drinkImg {
-    width: 75%;
   }
 }
 
