@@ -2,7 +2,7 @@ html * {
   font-family: 'Comfortaa', cursive;
 }
 
-/* nav bar styling  */
+/* nav bar and footer styling  */
 
 nav {
   background-color: #009f96;
@@ -21,7 +21,26 @@ nav .brand-logo {
   width: 55px;
 }
 
-/* nav bar styling end */
+.page-footer {
+  padding-top: 0px;
+  background-color: #009f96;
+}
+
+.footer-copyright {
+  text-align: center;
+  height: 50px;
+  justify-content: center !important;
+}
+
+html, body {
+  height: 98%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+/* nav bar footer styling end */
 
 /* title area styling */
 
@@ -303,7 +322,6 @@ h3 {
     font-size: 1.75rem;
   }
 }
-
 
 /* scroll bar updates */
 
